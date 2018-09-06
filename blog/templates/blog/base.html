@@ -1,18 +1,40 @@
 {% load static %}
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-  <title>{% block title %}{% endblock %}</title>
-  <link href="{% static "css/blog.css" %}" rel="stylesheet">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+    <style type="text/css">
+        .spacer{
+            margin-top:25px;
+        }
+    </style>
+    <link href="{% static "css/blog.css" %}" rel="stylesheet">
+    {% block custom_css %}{% endblock %}
+    <title>Django Blog App</title>
 </head>
+
 <body>
+
   <div id="content">
     {% block content %}
     {% endblock %}
   </div>
   <div id="sidebar">
-    <h2>My blog</h2>
-      <p>This is my blog.</p>
+      <h2><a href="{% url "blog:post_list" %}">My blog</a></h2>
+      <ul>
+          <li>View Blog</li>
+          <li>Share Blog</li>
+          <li>Comment Blog</li>
+      </ul>
   </div>
 </body>
 </html>

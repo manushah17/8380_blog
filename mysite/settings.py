@@ -26,7 +26,7 @@ SECRET_KEY = 'd6+^_ux=2s=553^sh!@-=y4!pbbnekw7zvp=n)+6aqe(s99a79'
 DEBUG = True
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
@@ -34,7 +34,11 @@ EMAIL_HOST_USER = 'mavstaruno@gmail.com'
 EMAIL_HOST_PASSWORD = '@mavstar123'
 EMAIL_PORT = 587
 
-ALLOWED_HOSTS = []
+LOGIN_REDIRECT_URL = '/'
+
+
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
 
 # Application definition
@@ -47,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -115,7 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Chicago'
 
 USE_I18N = True
 
@@ -128,3 +133,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
